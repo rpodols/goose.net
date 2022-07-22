@@ -11,16 +11,16 @@ const postSchema = new Schema({
       type: String,
       required: true,
     },
-    createAt: {
+    createdAt: {
       type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+      get: createdAtValue => dateFormat(createdAtValue),
     },
     username: {
         type: String,
         required: true
     },
-    comment: [commentSchema]
+    comments: [commentSchema]
 },
   {
     toJson: {
