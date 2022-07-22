@@ -11,7 +11,7 @@ const postSchema = new Schema({
       type: String,
       required: true,
     },
-    createAt: {
+    createdAt: {
       type: Date,
       default: Date.now,
       get: createdAtValue => dateFormat(createdAtValue),
@@ -20,7 +20,7 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    comment: [commentSchema]
+    comments: [commentSchema]
 },
   {
     toJson: {
