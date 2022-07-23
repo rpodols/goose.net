@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Setlist from './components/Setlist';
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 function App() {
   return (
@@ -10,11 +12,11 @@ function App() {
       <Router>
       <div className='margin-format'>
         <Header />
-        <Setlist />
-        <Setlist />
-        <Setlist />
-        <Setlist />
-        <Setlist />
+          <Routes>
+            <Route path="/" element={<Setlist />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
         <Footer />
         </div>
       </Router>

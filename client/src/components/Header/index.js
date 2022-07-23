@@ -12,12 +12,12 @@ const Header = () => {
     return (
         <header>
             <div>
-            <nav>
-                <div className="navigation">
-                <Link className="nav-bar" to="/">goose.net</Link>
-                <Link className="nav-bar" to="/login">Login</Link>
-                <Link className="nav-bar" to="/signup">Signup</Link>
-                </div>
+                <nav>
+                    <div className="navigation">
+                    <Link className="nav-bar" to="/">goose.net</Link>
+                    <Link className="nav-bar" to="/login">Login</Link>
+                    <Link className="nav-bar" to="/signup">Signup</Link>
+                    </div>
                 </nav>
             </div>
         </header>
