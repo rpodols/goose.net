@@ -70,7 +70,7 @@ const validate = (values) => {
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
 crossorigin="anonymous"></link>
             <div className="col-auto">
-                <h2 className="center">Signup:</h2>
+                <h2 className="center">Create New Account</h2>
                 {(error !="") ? ( <div className="error">{error}</div> ) : "" }
                 <div>
                     <label htmlFor="">Username:</label>

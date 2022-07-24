@@ -49,7 +49,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Setlist />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
+              <Route path="/register" element={<Signup />} />
             </Routes>
           )}
           <Footer />
