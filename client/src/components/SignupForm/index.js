@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
 
-function SignupForm({ Signup, error }) {
+import Auth from '../../utils/auth';
+
+function SignupForm({ props }) {
 const [formValues, setFormValues] = useState({username: "", email: "", password: ""});
 const [formErrors, setFormErrors] = useState({})
 const [isSubmit, setIsSubmit] = useState(false);
+const [addUser, { error }] = useMutation(ADD_USER);
 
-const submitHandler = e => {
+const submitHandler = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
     //Signup(formValues);
+    if (setIsSubmit) {
+        try {
+            console.log(1);
+            console.log(formValues);
+            const data = {
+                token: "82397492840238423",
+                user: {
+                    _id: "9304892304832",
+                    username: 'Bill'
+                }
+              }
+              console.log(data);
+            // const { data } = await addUser({
+            //     variables: { ...formValues }
+            // });
+
+            Auth.login(data.token);
+        } catch (e) {
+            console.error(e);
+        }
+    }
 };
 
 useEffect(() => {
@@ -39,11 +65,11 @@ const validate = (values) => {
 
     return (
         <div className="login-form">
-        <form class="row gy-2 gx-3 align-items-center" onSubmit={submitHandler}>
+        <form className="row gy-2 gx-3 align-items-center" onSubmit={submitHandler}>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
 crossorigin="anonymous"></link>
-            <div class="col-auto">
+            <div className="col-auto">
                 <h2 className="center">Signup:</h2>
                 {(error !="") ? ( <div className="error">{error}</div> ) : "" }
                 <div>
@@ -61,7 +87,7 @@ crossorigin="anonymous"></link>
                     <input type="password" name="password" id="password" onChange={e => setFormValues({...formValues, password: e.target.value})} value={formValues.password} />
                     <p>{ formErrors.password }</p>
                 </div>
-                <input class="btn btn-sm btn-light center" type="submit" value="Signup" />
+                <input className="btn btn-sm btn-light center" type="submit" value="Signup" />
                 
             </div>
             

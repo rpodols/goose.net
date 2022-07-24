@@ -3,6 +3,7 @@ import LoginForm from '../components/LoginForm/index';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function Login() {
+    let loggedIn = false;
     const navigate = useNavigate();
 
     const navigateToHome  = () => {
@@ -10,8 +11,9 @@ function Login() {
     };
 
     const adminUser = {
-        email: "admin@admin.com",
-        password: "admin123"
+        username: "admin",
+        password: "admin",
+        email: "admin@admin.com"
     }
 
     const [user, setUser] = useState({name: "", email: ""});
@@ -20,13 +22,14 @@ function Login() {
     const Login = details => {
         console.log(details);
 
-        if (details.email == adminUser.email && details.password == adminUser.password){
+        if (details.username === adminUser.username && details.password === adminUser.password){
             console.log("Logged In!");
             setUser({
                 username: details.username,
                 email: details.email
             })
             navigateToHome();
+            return loggedIn = true;
         } else {
             console.log("Username and password do not match any account!");
             setError("Username and password do not match any account!");
@@ -41,15 +44,15 @@ function Login() {
 
     return (
         <div className="login">
-            {(user.email !="") ? (
+            {(loggedIn) ? (
                 <div>
-                    <h2>Welcome, <span>{user.name}</span></h2>
+                    <h2>Welcome, <span>{user.username}</span></h2>
                     <button onClick={Logout}>Logout</button>
                 </div>
             ) : (
                 <LoginForm Login={Login} error={error} />
             )}
-
+        <script crossorigin src="..."></script>
         </div>
     );
 }

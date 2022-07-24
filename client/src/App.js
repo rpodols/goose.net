@@ -5,22 +5,58 @@ import Footer from './components/Footer';
 import Setlist from './components/Setlist';
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+import Auth from '../src/utils/auth';
+
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+const loggedIn = Auth.loggedIn();
+const loggedOut = !loggedIn;
+
 
 function App() {
   return (
-    <div>
-      <Router>
-      <div className='margin-format'>
-        <Header />
-          <Routes>
-            <Route path="/" element={<Setlist />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-        <Footer />
-        </div>
-      </Router>
-    </div>
+    <ApolloProvider client={client}>
+      <div>
+        <Router>
+        <div className='margin-format'>
+          <Header />
+          {loggedOut && (
+            <Routes>
+              <Route path="/" element={<Setlist />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          )}
+          <Footer />
+          </div>
+        </Router>
+      </div>
+    </ApolloProvider>
   );
 };
 
