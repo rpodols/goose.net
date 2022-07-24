@@ -30,7 +30,7 @@ type Post{
     title: String!
     createdAt: Date
     username: String!
-    comments [comment]
+    comments: [comment]
 }
 type Setlist{
     _id: ID!
