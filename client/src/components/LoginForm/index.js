@@ -39,19 +39,21 @@ crossorigin="anonymous"></link>
             <div className="col-auto">
                 <h2 className="center">Login</h2>
                 <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="username" name="username" id="username" onChange={e => setDetails({...details, username: e.target.value})} value={details.username} />
+                    <input type="username" name="username" id="username" placeholder="Username" onChange={e => setDetails({...details, username: e.target.value})} value={details.username} />
+                    <p></p>
                 </div>
                 {/* <div>
                     <label htmlFor="email">Email:</label>
                     <input type="email" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
                 </div> */}
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
+                    <input type="password" name="password" id="password" placeholder="Password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
+                    <p></p>
                 </div>
+                <div>
                 <input className="btn btn-sm btn-light center" type="submit" value="Login" />
                 {(error !="") ? ( <div className="error">{error}</div> ) : "" }
+                </div>
             </div>
         </form>
         <script crossorigin src="..."></script>

@@ -19,19 +19,19 @@ const submitHandler = async (e) => {
         try {
             console.log(1);
             console.log(formValues);
-            const data = {
-                token: "82397492840238423",
-                user: {
-                    _id: "9304892304832",
-                    username: 'Bill'
-                }
-              }
-              console.log(data);
+            // const data = {
+            //     token: "82397492840238423",
+            //     user: {
+            //         _id: "9304892304832",
+            //         username: 'Bill'
+            //     }
+            //   }
+            //   console.log(data);
             // const { data } = await addUser({
             //     variables: { ...formValues }
             // });
 
-            Auth.login(data.token);
+            //Auth.login(data.token);
         } catch (e) {
             console.error(e);
         }
@@ -56,16 +56,39 @@ const validate = (values) => {
         errors.password = "Password is required!"
     } else if (values.password.length < 4) {
         errors.password = "Password must be more than 4 characters!"
+    } else if (values.password.length > 24) {
+        errors.password = "Password must be less than 24 characters!"
     }
     if(!values.email) {
         errors.email = "Email is required!"
+    }
+    if(!values.confirmEmail) {
+        errors.confirmEmail = "Email is required!"
+    }
+    if(!values.verifyPassword) {
+        errors.verifyPassword = "Password is required!"
+    }
+    if(!values.realName) {
+        errors.realName = "Real name is required!"
+    }
+    if(!values.ageVerification) {
+        errors.ageVerification = "Must be over the age of 18 to register!"
+    }
+    if(!values.phoneNumber) {
+        errors.phoneNumber = "Phone number is required!"
+    }
+    if(values.password !== values.verifyPassword) {
+        errors.verifyPassword = "Password and verified password do not match!"
+    }
+    if(values.email !== values.confirmEmail) {
+        errors.confirmEmail = "Email and confirmed email do not match!"
     }
     return errors;
 };
 
     return (
         <div className="login-form">
-        <form className="row gy-2 gx-3 align-items-center" onSubmit={submitHandler}>
+        <form className="row" onSubmit={submitHandler}>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
 crossorigin="anonymous"></link>
@@ -73,22 +96,41 @@ crossorigin="anonymous"></link>
                 <h2 className="center">Create New Account</h2>
                 {(error !="") ? ( <div className="error">{error}</div> ) : "" }
                 <div>
-                    <label htmlFor="">Username:</label>
-                    <input type="username" name="username" id="username" onChange={e => setFormValues({...formValues, username: e.target.value})} value={formValues.username} />
+                    <input type="username" name="username" id="username" placeholder="Username" onChange={e => setFormValues({...formValues, username: e.target.value})} value={formValues.username} />
                     <p>{ formErrors.username }</p>
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" id="email" onChange={e => setFormValues({...formValues, email: e.target.value})} value={formValues.email} />
+                    <input type="email" name="email" id="email" placeholder="Email" onChange={e => setFormValues({...formValues, email: e.target.value})} value={formValues.email} />
                     <p>{ formErrors.email }</p>
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" onChange={e => setFormValues({...formValues, password: e.target.value})} value={formValues.password} />
+                    <input type="email" name="confirmEmail" id="confirmEmail" placeholder="Confirm Email" onChange={e => setFormValues({...formValues, confirmEmail: e.target.value})} value={formValues.confirmEmail} />
+                    <p>{ formErrors.confirmEmail }</p>
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="Password" onChange={e => setFormValues({...formValues, password: e.target.value})} value={formValues.password} />
                     <p>{ formErrors.password }</p>
                 </div>
+                <div>
+                    <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Verify Password" onChange={e => setFormValues({...formValues, verifyPassword: e.target.value})} value={formValues.verifyPassword} />
+                    <p>{ formErrors.verifyPassword }</p>
+                </div>
+                <div>
+                    <input type="realName" name="realName" id="realName" placeholder="Real Name" onChange={e => setFormValues({...formValues, realName: e.target.value})} value={formValues.realName} />
+                    <p>{ formErrors.realName }</p>
+                </div>
+                <div>
+                    <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" onChange={e => setFormValues({...formValues, phoneNumber: e.target.value})} value={formValues.phoneNumber} />
+                    <p>{ formErrors.phoneNumber }</p>
+                </div>
+                <div>
+                    <label className="verification-font" htmlFor="ageVerification">I confirm that I am over the age of 18:</label>
+                    <input type="checkbox" name="ageVerification" id="ageVerification" onChange={e => setFormValues({...formValues, ageVerification: true})} value={formValues.ageVerification} />
+                    <p>{ formErrors.ageVerification }</p>
+                </div>
+                <div>
                 <input className="btn btn-sm btn-light center" type="submit" value="Signup" />
-                
+                </div>
             </div>
             
         </form>
