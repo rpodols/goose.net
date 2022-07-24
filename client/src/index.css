@@ -160,13 +160,16 @@ ul.set-container2 {
 
 .center{
   padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.col-auto {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid white;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -175,7 +178,11 @@ div.col-auto {
   padding-top:30px;
   padding-bottom: 30px;
   border-radius: 25px;
-  background-image: linear-gradient(#313D5A, #73628A);
+  background-image: linear-gradient(#CBC5EA, #EAEAEA);
   color: white;
   box-shadow: 10px 10px 5px #EAEAEA;
+}
+
+.verification-font {
+  color: #183642
 }
