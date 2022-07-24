@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
+
 
 const userSchema = new Schema({
-    Username: {
+    username: {
         type: String,
         required: true,
         unique: true
@@ -37,4 +37,4 @@ userSchema.methods.isCorrectPassword = async function(password) {
 }
 });
 
-module.exports = User;
+module.exports = userSchema;
