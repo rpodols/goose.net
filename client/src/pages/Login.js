@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import LoginForm from '../components/LoginForm/index';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
+
+    const navigateToHome  = () => {
+        navigate('/');
+    };
+
     const adminUser = {
         email: "admin@admin.com",
         password: "admin123"
@@ -18,10 +25,11 @@ function Login() {
             setUser({
                 username: details.username,
                 email: details.email
-            });
+            })
+            navigateToHome();
         } else {
-            console.log("Details do not match!");
-            setError("Details do not match!");
+            console.log("Username and password do not match any account!");
+            setError("Username and password do not match any account!");
         }
     
     }
