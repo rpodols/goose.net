@@ -52,6 +52,11 @@ function App() {
               <Route path="/register" element={<Signup />} />
             </Routes>
           )}
+          {loggedIn && (
+                        <Routes>
+                        <Route path="/" element={<Setlist />} />
+                      </Routes>
+          )}
           <Footer />
           </div>
         </Router>
