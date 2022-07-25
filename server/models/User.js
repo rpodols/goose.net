@@ -22,6 +22,28 @@ const userSchema = new Schema({
         type: Boolean,
         required: true
     },
+    isAdmin: {
+        type: Boolean
+    },
+    setlists: [
+        {
+            type:Schema.Types.ObjectId,
+            ref: 'Setlist'
+        }
+    ],
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Post'
+        }
+    ],
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
+
     // isAdmin: {
     //     type: Boolean,
     //     required: true,
