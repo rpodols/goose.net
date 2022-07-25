@@ -6,43 +6,35 @@ import { useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
 const SignupForm = () => {
-const [formValues, setFormValues] = useState({username: "", email: "", password: ""});
+const [formValues, setFormValues] = useState({username: "", email: "", password: "", ageVerified: ""});
 const [formErrors, setFormErrors] = useState({})
 const [isSubmit, setIsSubmit] = useState(false);
 const [addUser, { error }] = useMutation(ADD_USER);
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
+// const navigateHome = () => {
+//     navigate('/');
+// }
+
+// const handleChange = (event) => {
+//     const { name, value } = event.target;
+
+//     setFormValues({
+//       ...formValues,
+//       [name]: value,
+//     });
+//   };
 
 const submitHandler = async (e) => {
-   
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-    //Signup(formValues);
-    if (setIsSubmit) {
         try {
-            console.log(1);
-            console.log(formValues);
-
-            // const data = {
-            //     token: "82397492840238423",
-            //     user: {
-            //         _id: "9304892304832",
-            //         username: 'Bill'
-            //     }
-            //   }
-            //   console.log(data);
             const { data } = await addUser({
                 variables: { ...formValues }
             });
-
-            Auth.login(data.addUser.token).navigate('/');
-         
-            
+            Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
         }
-    }
 };
 
 useEffect(() => {
@@ -78,8 +70,8 @@ const validate = (values) => {
     // if(!values.realName) {
     //     errors.realName = "Real name is required!"
     // }
-    if(!values.ageVerification) {
-        errors.ageVerification = "Must be over the age of 18 to register!"
+    if(!values.ageVerified) {
+        errors.ageVerified = "Must be over the age of 18 to register!"
     }
     // if(!values.phoneNumber) {
     //     errors.phoneNumber = "Phone number is required!"
@@ -131,9 +123,9 @@ crossorigin="anonymous"></link>
                     <p>{ formErrors.phoneNumber }</p>
                 </div> */}
                 <div>
-                    <label className="verification-font" htmlFor="ageVerification">I confirm that I am over the age of 18:</label>
-                    <input type="checkbox" name="ageVerification" id="ageVerification" onChange={e => setFormValues({...formValues, ageVerification: true})} value={formValues.ageVerification} />
-                    <p>{ formErrors.ageVerification }</p>
+                    <label className="verification-font" htmlFor="ageVerified">I confirm that I am over the age of 18:</label>
+                    <input type="checkbox" name="ageVerified" id="ageVerified" onChange={e => setFormValues({...formValues, ageVerified: true})} value={formValues.ageVerified} />
+                    <p>{ formErrors.ageVerified }</p>
                 </div>
                 <div>
                 <input className="btn btn-sm btn-light center" type="submit" value="Signup" />
