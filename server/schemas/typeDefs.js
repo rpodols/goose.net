@@ -1,54 +1,45 @@
 const { gql } = require('apollo-server-express');
 
+    //MUTATIONS TO ADD BACK IN LATER
+    // addPost(postData: PostInput!): User
+    // addComment(commentData: CommentInput!): User
+    // removePost(postID: ID!): User
+    // removeComment(commentID: ID!): User
+    // createSetlist(setlistID: ID!): User
+
+    //re-add isAdmin: Boolean to User
+    //       posts: [Post]
+    //       comments: [Comment]
+    //       setlists: [Setlist]
+
 const typeDefs = gql`
-type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    savePost(postData: savePost!): User
-    addComment(commentData: addComment!): User
-    removePost(postID: ID!): User
-    removeComment(commentID: ID!): User
-    saveSetlist(setlistID: ID!): User
-    removeSetlist(setlistID: ID!): User
-}
 type User {
     _id: ID!
     username: String!
-    email: String
-    Posts: [Post]
-    comments: [Comment]
-    Setlists: [Setlist]
+    email: String!
+    ageVerified: Boolean!
 }
 type Comment{
     _id: ID!
     commentBody: String!
     username: String!
+    createdAt: String!
 }
+type Auth {
+    token: ID!
+    user: User
+  }
 type Post{
     _id: ID!
-    title: String!
     body: String!
+    title: String!
+    createdAt: String
     username: String!
     comments: [Comment]
 }
 type Setlist{
     _id: ID!
-    artist: String!
-    venue: String!
-    city: String!
-    state: String!
-    set: String!
-}
-input savePost {
-    title: String!
-    body: String!
-    username: String!
-}
-input addComment {
-    commentBody: String!
-    username: String!
-}
-input saveSetlist {
+    date: String!
     artist: String!
     venue: String!
     city: String!
@@ -57,11 +48,12 @@ input saveSetlist {
 }
 type Query {
     me: User
-  }
-  type Auth {
-    token: ID!
-    user: User
-  }
+    users: [User]
+}
+type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
+}
 `;
 
 module.exports = typeDefs;

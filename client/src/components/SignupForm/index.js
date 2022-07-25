@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
-function SignupForm({ props }) {
+const SignupForm = () => {
 const [formValues, setFormValues] = useState({username: "", email: "", password: ""});
 const [formErrors, setFormErrors] = useState({})
 const [isSubmit, setIsSubmit] = useState(false);
 const [addUser, { error }] = useMutation(ADD_USER);
+const navigate = useNavigate();
+
 
 const submitHandler = async (e) => {
+   
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
@@ -19,6 +23,7 @@ const submitHandler = async (e) => {
         try {
             console.log(1);
             console.log(formValues);
+
             // const data = {
             //     token: "82397492840238423",
             //     user: {
@@ -27,11 +32,13 @@ const submitHandler = async (e) => {
             //     }
             //   }
             //   console.log(data);
-            // const { data } = await addUser({
-            //     variables: { ...formValues }
-            // });
+            const { data } = await addUser({
+                variables: { ...formValues }
+            });
 
-            //Auth.login(data.token);
+            Auth.login(data.addUser.token).navigate('/');
+         
+            
         } catch (e) {
             console.error(e);
         }
@@ -68,15 +75,15 @@ const validate = (values) => {
     if(!values.verifyPassword) {
         errors.verifyPassword = "Password is required!"
     }
-    if(!values.realName) {
-        errors.realName = "Real name is required!"
-    }
+    // if(!values.realName) {
+    //     errors.realName = "Real name is required!"
+    // }
     if(!values.ageVerification) {
         errors.ageVerification = "Must be over the age of 18 to register!"
     }
-    if(!values.phoneNumber) {
-        errors.phoneNumber = "Phone number is required!"
-    }
+    // if(!values.phoneNumber) {
+    //     errors.phoneNumber = "Phone number is required!"
+    // }
     if(values.password !== values.verifyPassword) {
         errors.verifyPassword = "Password and verified password do not match!"
     }
@@ -115,14 +122,14 @@ crossorigin="anonymous"></link>
                     <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Verify Password" onChange={e => setFormValues({...formValues, verifyPassword: e.target.value})} value={formValues.verifyPassword} />
                     <p>{ formErrors.verifyPassword }</p>
                 </div>
-                <div>
+                {/* <div>
                     <input type="realName" name="realName" id="realName" placeholder="Real Name" onChange={e => setFormValues({...formValues, realName: e.target.value})} value={formValues.realName} />
                     <p>{ formErrors.realName }</p>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     <input type="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" onChange={e => setFormValues({...formValues, phoneNumber: e.target.value})} value={formValues.phoneNumber} />
                     <p>{ formErrors.phoneNumber }</p>
-                </div>
+                </div> */}
                 <div>
                     <label className="verification-font" htmlFor="ageVerification">I confirm that I am over the age of 18:</label>
                     <input type="checkbox" name="ageVerification" id="ageVerification" onChange={e => setFormValues({...formValues, ageVerification: true})} value={formValues.ageVerification} />

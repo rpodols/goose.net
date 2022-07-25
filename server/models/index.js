@@ -4,7 +4,4 @@ const Post = require('./Post');
 const Setlist = require('./Setlist');
 
 
-module.exports = { Comment };
-module.exports = { User };
-module.exports = { Post };
-module.exports = { Setlist };
+module.exports = { Comment, User, Post, Setlist };

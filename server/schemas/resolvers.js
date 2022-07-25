@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models')
+const { User, Post } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -12,6 +13,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    users: async () => {
+        return User.find()
+            .select('-__v -password')
+    }
   },
 
   Mutation: {
@@ -20,6 +25,8 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+
+      //return user;
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -37,82 +44,82 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    savePost: async (parent, { postData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedPost: postData } },
-          { new: true }
-        );
+//     savePost: async (parent, { postData }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findByIdAndUpdate(
+//           { _id: context.user._id },
+//           { $push: { savedPost: postData } },
+//           { new: true }
+//         );
 
-        return updatedUser;
-      }
+//         return updatedUser;
+//       }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    removePost: async (parent, { postId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedPosts: { postId } } },
-          { new: true }
-        );
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
+//     removePost: async (parent, { postId }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findOneAndUpdate(
+//           { _id: context.user._id },
+//           { $pull: { savedPosts: { postId } } },
+//           { new: true }
+//         );
 
-        return updatedUser;
-      }
+//         return updatedUser;
+//       }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    addComment: async (parent, { commentData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedComments: commentData } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    removeComment: async (parent, { commentId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          {$pull: {savedComments: { commentId } } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    saveSetlist: async (parent, { setlistData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedSetlist: setlistData } },
-          { new: true }
-        );
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
+//     addComment: async (parent, { commentData }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findOneAndUpdate(
+//           { _id: context.user._id },
+//           { $pull: { savedComments: commentData } },
+//           { new: true }
+//         );
+//         return updatedUser;
+//       }
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
+//     removeComment: async (parent, { commentId }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findOneAndUpdate(
+//           { _id: context.user._id },
+//           {$pull: {savedComments: { commentId } } },
+//           { new: true }
+//         );
+//         return updatedUser;
+//       }
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
+//     saveSetlist: async (parent, { setlistData }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findByIdAndUpdate(
+//           { _id: context.user._id },
+//           { $push: { savedSetlist: setlistData } },
+//           { new: true }
+//         );
 
-        return updatedUser;
-      }
+//         return updatedUser;
+//       }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    removeSetlist: async (parent, { setlistId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedSetlist: { setlistId } } },
-          { new: true }
-        );
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
+//     removeSetlist: async (parent, { setlistId }, context) => {
+//       if (context.user) {
+//         const updatedUser = await User.findOneAndUpdate(
+//           { _id: context.user._id },
+//           { $pull: { savedSetlist: { setlistId } } },
+//           { new: true }
+//         );
 
-        return updatedUser;
-      }
+//         return updatedUser;
+//       }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
+//       throw new AuthenticationError('You need to be logged in!');
+//     },
     
-  },
+   },
 };
 
 module.exports = resolvers;
