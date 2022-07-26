@@ -59,6 +59,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
+    addSetlist(artist: String!, venue: String!, city: String!, state: String!, set: String!): Auth
 }
 `;
 
