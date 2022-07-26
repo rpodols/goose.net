@@ -46,10 +46,10 @@ crossorigin="anonymous"></link>
                     <p></p>
                 </div> */}
                 <div>
-                    <input type="email" name="email" id="email" placeholder="Email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
+                    <input type="email" name="email" id="email" placeholder="Email" required onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
                 </div>
                 <div>
-                    <input type="password" name="password" id="password" placeholder="Password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
+                    <input type="password" name="password" id="password" placeholder="Password" required onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
                     <p></p>
                 </div>
                 <div>
