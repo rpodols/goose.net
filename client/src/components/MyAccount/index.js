@@ -1,7 +1,7 @@
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client';
 
-import { QUERY_USER, QUERY_ME, QUERY_SETLIST } from '../utils/queries'
+//import { QUERY_USER, QUERY_ME, QUERY_SETLIST } from '../utils/queries';
 
 
 const MyAccount = (props) => {

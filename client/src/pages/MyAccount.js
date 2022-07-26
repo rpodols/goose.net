@@ -1,6 +1,7 @@
 import React from 'react';
+import MyAccount from '../components/MyAccount/index';
 
-function MyAccount() {
+function MyAccountPage() {
 
     return (
         <div className="My Account">
@@ -9,4 +10,4 @@ function MyAccount() {
     );
 }
 
-export default MyAccount;
+export default MyAccountPage;

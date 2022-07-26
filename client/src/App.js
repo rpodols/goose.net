@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Setlist from './components/Setlist';
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import MyAccount from './pages/MyAccount';
 import {
   ApolloClient,
   InMemoryCache,
@@ -55,6 +56,7 @@ function App() {
           {loggedIn && (
                         <Routes>
                         <Route path="/" element={<Setlist />} />
+                        <Route path="/myaccount" element={<MyAccount />} />
                       </Routes>
           )}
           <Footer />
