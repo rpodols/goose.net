@@ -5,29 +5,21 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function LoginForm(props) {
-const [details, setDetails] = useState({username: "", password: ""});
+const [details, setDetails] = useState({email: "", password: ""});
 const [login, { error }] = useMutation(LOGIN_USER);
 
 const submitHandler = async (e) => {
     e.preventDefault();
-
-    //login(details);
-    console.log(1);
     try {
-        console.log(4);
         const { data } = await login({
             variables: { ...details },
         });
-        console.log(2);
         Auth.login(data.login.token);
-        console.log(5);
     } catch (e) {
-        console.log(3);
         console.error(e);
     }
 
     setDetails({
-        username: "",
         email: "",
         password: "",
     });
@@ -48,16 +40,17 @@ crossorigin="anonymous"></link>
                 <div>
                     <input type="email" name="email" id="email" placeholder="Email" required onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
                 </div>
+                <p></p>
                 <div>
                     <input type="password" name="password" id="password" placeholder="Password" required onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
                     <p></p>
                 </div>
                 <div>
                 <input className="btn btn-sm btn-light center" type="submit" value="Login" />
-                {(error !="") ? ( <div className="error">{error}</div> ) : "" }
                 </div>
             </div>
         </form>
+        {error && <div>Incorrect credentials, please retry or create an account.</div>}
         <script crossorigin src="..."></script>
         </div>
     )

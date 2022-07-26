@@ -116,7 +116,7 @@ crossorigin="anonymous"></link>
                     <p>{ formErrors.phoneNumber }</p>
                 </div> */}
                 <div>
-                    <label className="verification-font" htmlFor="ageVerified">I confirm that I am over the age of 18:</label>
+                    <label className="verification-font" htmlFor="ageVerified">I confirm that I am over the age of 13:</label>
                     <input type="checkbox" name="ageVerified" id="ageVerified" required onChange={e => setFormValues({...formValues, ageVerified: true})} value={formValues.ageVerified} />
                     <p>{ formErrors.ageVerified }</p>
                 </div>
