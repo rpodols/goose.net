@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
-import Header from '../components/header/index';
-import Footer from '../components/footer/index';
-import Setlist from '../components/Setlist/index';
+import React from 'react';
 
 function MyAccount() {
 
     return (
-        <><Header /><div className="My Account">
-            <MyAccount/>
-            <Setlist/>
+        <div className="My Account">
+            <MyAccount />
         </div>
-        <Footer />
-        </>
     );
 }
 
