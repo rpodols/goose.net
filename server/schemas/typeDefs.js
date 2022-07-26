@@ -52,7 +52,7 @@ type Query {
     user(username: String!): User
     setlists(username: String): [Setlist]
     setlist(_id: ID!): Setlist
-    posts(username: String): [Posts]
+    posts(username: String): [Post]
     post(_id: ID!): Post
 
 }
