@@ -54,3 +54,20 @@ export const ADD_COMMENT = gql`
   }
 `;
 
+export const ADD_SETLIST = gql`
+  mutation addSetlist($userId: ID!, $setlist_id: ID!) {
+    addSetlist(userID: $userId, setlistId: $setlistId) {
+      _id
+      date
+      artist
+      venue
+      city
+      state
+      set
+      user {
+        _id
+        username
+      }
+    }
+  }
+`
