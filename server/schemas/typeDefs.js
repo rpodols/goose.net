@@ -60,6 +60,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
     addSetlist(artist: String!, venue: String!, city: String!, state: String!, set: String!): Auth
+    addPost(body: String!, title: String!, createdAt: String): Auth
 }
 `;
 
