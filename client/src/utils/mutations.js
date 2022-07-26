@@ -54,3 +54,6 @@ export const ADD_COMMENT = gql`
   }
 `;
 
+export const ADD_SETLIST = gql`
+  mutation addSetlist
+`

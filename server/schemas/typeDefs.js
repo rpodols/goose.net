@@ -49,6 +49,12 @@ type Setlist{
 type Query {
     me: User
     users: [User]
+    user(username: String!): User
+    setlists(username: String): [Setlist]
+    setlist(_id: ID!): Setlist
+    posts(username: String): [Posts]
+    post(_id: ID!): Post
+
 }
 type Mutation {
     login(email: String!, password: String!): Auth
