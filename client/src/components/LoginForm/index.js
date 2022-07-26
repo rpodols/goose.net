@@ -48,9 +48,9 @@ crossorigin="anonymous"></link>
                 <div>
                 <input className="btn btn-sm btn-light center" type="submit" value="Login" />
                 </div>
+                {error && <div>Incorrect credentials, please retry or create an account.</div>}
             </div>
         </form>
-        {error && <div>Incorrect credentials, please retry or create an account.</div>}
         <script crossorigin src="..."></script>
         </div>
     )
