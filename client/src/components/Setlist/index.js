@@ -1,7 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Setlist = () => {
+    const setlist = {
+        artist: "goose",
+        venue: "Agora",
+        date: "thursday: 3/10/22",
+        location: "Cleveland, OH",
+        set: "Set One",
+        songList: "tumble > writing a novel, turned clouds > bob don, rockdale"
+
+    }
     return (
+    <>
+        <div className="setlist-container">
+            <h4 className="setlist-header">{setlist.artist}: {setlist.venue}</h4>
+            <h5 className="setlist-subheader">{setlist.date} | {setlist.location}</h5>
+            <div className="setlist-song">
+                <ul className="set-container">
+                    {/* THIS WOULD NEED SOME SORT OF 'FOR EACH' LOGIC TO REPEAT THIS FOR EACH SET */}
+                    <li className="set-format">{setlist.set}:</li>
+                    <li className='each-song'>{setlist.songList}</li>
+                </ul>
+                <ul className="set-container2">
+                    <li className="commenter-format">Comments</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+        {/* // ***** SETLIST HARD CODED EXAMPLE START ***** // */}
         <div className="setlist-container">
             <h4 className="setlist-header">goose: Radio City Music Hall</h4>
             <h5 className="setlist-subheader">wednesday: 07/20/2022 | Philadelphia, PA</h5>
@@ -32,6 +63,8 @@ const Setlist = () => {
                     </ul>
             </div>
         </div>
+         {/* // ***** SETLIST HARD CODED EXAMPLE END ***** // */}
+         </>
     )
 };
 

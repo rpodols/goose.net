@@ -18,9 +18,9 @@ const Header = () => {
                     <div className="navigation">
                     {loggedIn ? (
                         <>
-                            <Link className="nav-bar" to="/">goose.net</Link>
+                            <Link className="nav-bar" to="/">goose.vet</Link>
                             <Link className="nav-bar" to="/myaccount">My Account</Link>
-                            <a href="/" onClick={logout}>Logout</a>
+                            <a className="nav-bar" href="/" onClick={logout}>Logout</a>
                         </>
                     ) : (
                         <>

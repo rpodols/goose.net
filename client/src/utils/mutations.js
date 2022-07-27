@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const ADD_POST = gql`
   mutation addPost($body: String!, $title: String!) {
-    addPost(body: $body, title:$title) {
+    addPost(body: $body, title: $title) {
       _id
       body
       title
@@ -40,8 +40,8 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($commentBody: String!) {
-    addComment(commentBody: $commentBody) {
+  mutation addComment($setlistId: ID!, $commentBody: String!) {
+    addComment(setlistId: $setlistId, commentBody: $commentBody) {
       _id
       commentCount
       comments {
@@ -55,19 +55,36 @@ export const ADD_COMMENT = gql`
 `;
 
 export const ADD_SETLIST = gql`
-  mutation addSetlist($userId: ID!, $setlist_id: ID!) {
-    addSetlist(userID: $userId, setlistId: $setlistId) {
+  mutation addSetlist($date: String!, $artist: String!, $venue: String!, $location: String!, $set: String!, $songList: String!) {
+    addSetlist(date: $date, artist: $artist, venue: $venue, location: $location, set: $set, songList: $songList) {
       _id
       date
       artist
       venue
-      city
-      state
+      location
       set
-      user {
+      songList
+      comments {
         _id
-        username
       }
     }
   }
 `
+
+// export const ADD_SETLIST = gql`
+//   mutation addSetlist($userId: ID!, $setlist_id: ID!) {
+//     addSetlist(userID: $userId, setlistId: $setlistId) {
+//       _id
+//       date
+//       artist
+//       venue
+//       city
+//       state
+//       set
+//       user {
+//         _id
+//         username
+//       }
+//     }
+//   }
+// `

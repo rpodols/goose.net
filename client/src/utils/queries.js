@@ -20,20 +20,13 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_SETLIST = gql`
-query setlist($id: ID!) {
-  setlist(_id: $id) {
+export const QUERY_SETLISTS = gql`
+query setlist {
     _id
     date
     artist
     venue
-    city
-    state
+    location
     set
-    user {
-      _id
-      username
-    }
-  }
-
-}`
+    songList
+}`;

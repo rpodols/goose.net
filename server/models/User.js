@@ -23,7 +23,9 @@ const userSchema = new Schema({
         required: true
     },
     isAdmin: {
-        type: Boolean
+        type: Boolean,
+        default: false
+        
     },
     setlists: [
         {

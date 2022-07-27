@@ -2,10 +2,8 @@ const { gql } = require('apollo-server-express');
 
     //MUTATIONS TO ADD BACK IN LATER
     // addPost(postData: PostInput!): User
-    // addComment(commentData: CommentInput!): User
     // removePost(postID: ID!): User
     // removeComment(commentID: ID!): User
-    // createSetlist(setlistID: ID!): User
 
     //re-add isAdmin: Boolean to User
     //       posts: [Post]
@@ -42,9 +40,9 @@ type Setlist{
     date: String!
     artist: String!
     venue: String!
-    city: String!
-    state: String!
+    location: String!
     set: String!
+    songList: String!
 }
 type Query {
     me: User
@@ -59,8 +57,8 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
-    addSetlist(artist: String!, venue: String!, city: String!, state: String!, set: String!): Auth
-    addPost(body: String!, title: String!, createdAt: String): Auth
+    addSetlist(artist: String!, venue: String!, location: String!, set: String!, songList:String! date:String!): Setlist
+    addComment(setlistId: ID!, commentBody: String!): Setlist
 }
 `;
 

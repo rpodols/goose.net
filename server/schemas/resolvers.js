@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Setlist } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -43,6 +43,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addSetlist: async (parent, args) => {
+      const setlist = await Setlist.create(args);
+        return setlist;
+    
+
+      //throw new AuthenticationError('You need to be logged in!');
+    },
+    addComment: async (parent, { commentData }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedComments: commentData } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
 //     savePost: async (parent, { postData }, context) => {
 //       if (context.user) {
 //         const updatedUser = await User.findByIdAndUpdate(
@@ -69,17 +87,6 @@ const resolvers = {
 
 //       throw new AuthenticationError('You need to be logged in!');
 //     },
-//     addComment: async (parent, { commentData }, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findOneAndUpdate(
-//           { _id: context.user._id },
-//           { $pull: { savedComments: commentData } },
-//           { new: true }
-//         );
-//         return updatedUser;
-//       }
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
 //     removeComment: async (parent, { commentId }, context) => {
 //       if (context.user) {
 //         const updatedUser = await User.findOneAndUpdate(
@@ -91,19 +98,6 @@ const resolvers = {
 //       }
 //       throw new AuthenticationError('You need to be logged in!');
 //     },
-     addSetlist: async (parent, { setlistData }, context) => {
-       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-           { _id: context.user._id },
-           { $push: { savedSetlist: setlistData } },
-           { new: true }
-         );
-
-         return updatedUser;
-       }
-
-       throw new AuthenticationError('You need to be logged in!');
-     },
 //     removeSetlist: async (parent, { setlistId }, context) => {
 //       if (context.user) {
 //         const updatedUser = await User.findOneAndUpdate(

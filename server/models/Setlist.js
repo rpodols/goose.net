@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const setlistSchema = new Schema({
     
@@ -7,24 +7,17 @@ const setlistSchema = new Schema({
         type: Date,
         required: true,
     },
-
     artist: 
     {
         type: String,
         required: true,
-        default: 'goose',
     },
     venue: 
     {
         type: String,
         required: true,
     },
-    city: 
-    {
-        type: String,
-        required: true,
-    },
-    state:
+    location: 
     {
         type: String,
         required: true,
@@ -32,7 +25,14 @@ const setlistSchema = new Schema({
     set: {
         type: String,
         required: true,
-    }
+    },
+    songList:
+    {
+        type: String,
+        required: true,
+    },
 });
 
-module.exports = setlistSchema;
+const Setlist = model('Setlist', setlistSchema);
+
+module.exports = Setlist;
