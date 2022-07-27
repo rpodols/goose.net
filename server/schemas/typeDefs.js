@@ -42,8 +42,8 @@ type Setlist{
     venue: String!
     location: String!
     setOneSongList: String!
-    setTwoSongList: String!
-    encoreSongList: String!
+    setTwoSongList: String
+    encoreSongList: String
 }
 type Query {
     me: User

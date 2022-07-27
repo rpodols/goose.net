@@ -25,17 +25,14 @@ const setlistSchema = new Schema({
     setOneSongList:
     {
         type: String,
-        required: true,
     },
     setTwoSongList:
     {
         type: String,
-        required: true,
     },
     encoreSongList:
     {
         type: String,
-        required: true,
     },
 
 });

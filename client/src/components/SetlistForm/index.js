@@ -18,11 +18,11 @@ const SetlistForm = () => {
         }
     });
 
-    const handleChange = (event) => {
-        if (event.target.value.length <= 500) {
-            setSetlistText(event.target.value);
-        }
-    };
+    //const handleChange = (event) => {
+    //    if (event.target.value.length <= 500) {
+    //        setSetlistText(event.target.value);
+    //    }
+    //};
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();

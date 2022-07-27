@@ -63,8 +63,6 @@ export const ADD_SETLIST = gql`
       venue
       location
       setOneSongList
-      setTwoSongList
-      encoreSongList
       comments {
         _id
       }
