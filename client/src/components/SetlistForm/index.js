@@ -5,7 +5,7 @@ import { ADD_SETLIST } from '../../utils/mutations';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 const SetlistForm = () => {
-    const [setlistText, setSetlistText] = useState({artist: "", venue: "", location: "", date: "", set: "", songList: "" });
+    const [setlistText, setSetlistText] = useState({artist: "", venue: "", location: "", date: "", setOneSongList: "", setTwoSongList: "", encoreSongList: "" });
     
     const [addSetlist, { error }] = useMutation(ADD_SETLIST, {
         update(cache, { data: { addSetlist } }) {
@@ -65,17 +65,21 @@ crossorigin="anonymous"></link>
                 </div>
                 <p></p>
                 <div>
-                    <input type="text" name="set" id="set" placeholder="Set" required onChange={e => setSetlistText({...setlistText, set: e.target.value})} value={setlistText.set} />
+                    <input type="text" name="setOneSongList" id="setOneSongList" placeholder="Enter first set song list here..." required onChange={e => setSetlistText({...setlistText, setOneSongList: e.target.value})} value={setlistText.setOneSongList} />
                 </div>
                 <p></p>
                 <div>
-                    <textarea type="text" name="songList" id="songList" placeholder="Enter song list here..." required onChange={e => setSetlistText({...setlistText, songList: e.target.value})} value={setlistText.songList} />
+                    <input type="text" name="setTwoSongList" id="setTwoSongList" placeholder="Enter second set song list here..." required onChange={e => setSetlistText({...setlistText, setTwoSongList: e.target.value})} value={setlistText.setTwoSongList} />
+                </div>
+                <div>
+                    <input type="text" name="encoreSongList" id="encoreSongList" placeholder="Enter encore song list here..." required onChange={e => setSetlistText({...setlistText, encoreSongList: e.target.value})} value={setlistText.encoreSongList} />
                 </div>
                 <p></p>
                 {/* <textarea name="songList" id="songList" placeholder="Enter song list here..." value={setlistText} onChange={handleChange}></textarea> */}
                 <button className="btn btn-sm btn-light center" type="submit">Submit</button>
             </div>
             </form>
+            
         </div>
     )
 }
