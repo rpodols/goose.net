@@ -5,15 +5,15 @@ import { ADD_SETLIST } from '../../utils/mutations';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 const SetlistForm = () => {
-    const [setlistText, setSetlistText] = useState('');
+    const [setlistText, setSetlistText] = useState({artist: "", venue: "", location: "", date: "", set: "", songList: "" });
     
     const [addSetlist, { error }] = useMutation(ADD_SETLIST, {
         update(cache, { data: { addSetlist } }) {
             
-            const { setLists } = cache.readQuery({ query: QUERY_SETLISTS});
+            const { setlists } = cache.readQuery({ query: QUERY_SETLISTS});
             cache.writeQuery({
                 query: QUERY_SETLISTS,
-                data: { setLists: [addSetlist, ...setLists] },
+                data: { setlists: [addSetlist, ...setlists] },
             });
         }
     });

@@ -21,12 +21,15 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_SETLISTS = gql`
-query setlist {
+query { 
+  setlists {
     _id
     date
     artist
     venue
     location
-    set
-    songList
+    setOneSongList
+    setTwoSongList
+    encoreSongList
+  }
 }`;

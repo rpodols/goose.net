@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Setlist from './components/Setlist';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MyAccount from './pages/MyAccount';
@@ -48,14 +49,14 @@ function App() {
           <Header />
           {loggedOut && (
             <Routes>
-              <Route path="/" element={<Setlist />} />
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Signup />} />
             </Routes>
           )}
           {loggedIn && (
                         <Routes>
-                        <Route path="/" element={<Setlist />} />
+                        <Route path="/" element={<Home />} />
                         <Route path="/myaccount" element={<MyAccount />} />
                       </Routes>
           )}

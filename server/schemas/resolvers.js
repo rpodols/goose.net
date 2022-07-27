@@ -16,7 +16,11 @@ const resolvers = {
     users: async () => {
         return User.find()
             .select('-__v -password')
-    }
+    },
+  
+  setlists: async () => {
+    return Setlist.find()
+  }
   },
 
   Mutation: {

@@ -41,14 +41,15 @@ type Setlist{
     artist: String!
     venue: String!
     location: String!
-    set: String!
-    songList: String!
+    setOneSongList: String!
+    setTwoSongList: String!
+    encoreSongList: String!
 }
 type Query {
     me: User
     users: [User]
     user(username: String!): User
-    setlists(username: String): [Setlist]
+    setlists: [Setlist]
     setlist(_id: ID!): Setlist
     posts(username: String): [Post]
     post(_id: ID!): Post
@@ -57,7 +58,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
-    addSetlist(artist: String!, venue: String!, location: String!, set: String!, songList:String! date:String!): Setlist
+    addSetlist(artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList:String!, encoreSongList:String!, date:String!): Setlist
     addComment(setlistId: ID!, commentBody: String!): Setlist
 }
 `;

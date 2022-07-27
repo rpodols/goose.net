@@ -4,7 +4,7 @@ const setlistSchema = new Schema({
     
     date: 
     {
-        type: Date,
+        type: String,
         required: true,
     },
     artist: 
@@ -22,15 +22,22 @@ const setlistSchema = new Schema({
         type: String,
         required: true,
     },
-    set: {
-        type: String,
-        required: true,
-    },
-    songList:
+    setOneSongList:
     {
         type: String,
         required: true,
     },
+    setTwoSongList:
+    {
+        type: String,
+        required: true,
+    },
+    encoreSongList:
+    {
+        type: String,
+        required: true,
+    },
+
 });
 
 const Setlist = model('Setlist', setlistSchema);
