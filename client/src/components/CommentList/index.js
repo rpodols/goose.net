@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const CommentList = ({ comments }) => {
     return (
@@ -9,8 +9,8 @@ const CommentList = ({ comments }) => {
             </div>
             <div>
                 {comments && comments.map(comment => (
-                    <p  key={comment.id}>
-                        {comment.commentBody} //{' '}
+                    <p key={comment._id}>
+                        {comment.commentBody} 
                         {comment.username} on {comment.createdAt}
                     </p>
                 ))}

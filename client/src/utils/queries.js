@@ -33,3 +33,23 @@ query {
     encoreSongList
   }
 }`;
+
+export const QUERY_SETLIST = gql`
+query setlist($id: ID!) { 
+  setlist(_id: $id) {
+    _id
+    date
+    artist
+    venue
+    location
+    setOneSongList
+    setTwoSongList
+    encoreSongList
+    comments {
+      _id
+      commentBody
+      username
+      createdAt
+    }
+  }
+}`;

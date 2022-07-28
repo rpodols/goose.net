@@ -17,12 +17,6 @@ type User {
     email: String!
     ageVerified: Boolean!
 }
-type Comment{
-    _id: ID!
-    commentBody: String!
-    username: String!
-    createdAt: String!
-}
 type Auth {
     token: ID!
     user: User
@@ -44,6 +38,13 @@ type Setlist{
     setOneSongList: String!
     setTwoSongList: String!
     encoreSongList: String!
+    comments: [Comment]
+}
+type Comment {
+    _id: ID!
+    commentBody: String!
+    username: String!
+    createdAt: String!
 }
 type Query {
     me: User
@@ -58,7 +59,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
-    addSetlist(artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList:String!, encoreSongList:String!, date:String!): Setlist
+    addSetlist(artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList: String!, encoreSongList: String!, date: String!): Setlist
     addComment(setlistId: ID!, commentBody: String!): Setlist
 }
 `;

@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const commentSchema = require('./Comment');
 
 const setlistSchema = new Schema({
     
@@ -37,6 +38,7 @@ const setlistSchema = new Schema({
         type: String,
         required: true,
     },
+    comments: [commentSchema]
 
 });
 

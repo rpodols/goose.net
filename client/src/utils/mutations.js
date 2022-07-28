@@ -43,7 +43,6 @@ export const ADD_COMMENT = gql`
   mutation addComment($setlistId: ID!, $commentBody: String!) {
     addComment(setlistId: $setlistId, commentBody: $commentBody) {
       _id
-      commentCount
       comments {
         _id
         commentBody
@@ -55,7 +54,7 @@ export const ADD_COMMENT = gql`
 `;
 
 export const ADD_SETLIST = gql`
-  mutation addSetlist($date: String!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String! $encoreSongList: String!) {
+  mutation addSetlist($date: String!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String!, $encoreSongList: String!) {
     addSetlist(date: $date, artist: $artist, venue: $venue, location: $location, setOneSongList: $setOneSongList, setTwoSongList: $setTwoSongList, encoreSongList: $encoreSongList) {
       _id
       date
@@ -65,9 +64,6 @@ export const ADD_SETLIST = gql`
       setOneSongList
       setTwoSongList
       encoreSongList
-      comments {
-        _id
-      }
     }
   }
 `

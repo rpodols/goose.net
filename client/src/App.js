@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Setlist from './components/Setlist';
+import SingleSetlist from './pages/SingleSetlist';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -58,6 +59,7 @@ function App() {
                         <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/myaccount" element={<MyAccount />} />
+                        <Route path="/setlist/:id" element={<SingleSetlist />} />
                       </Routes>
           )}
           <Footer />

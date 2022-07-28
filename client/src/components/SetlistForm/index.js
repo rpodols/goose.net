@@ -10,7 +10,7 @@ const SetlistForm = () => {
     const [addSetlist, { error }] = useMutation(ADD_SETLIST, {
         update(cache, { data: { addSetlist } }) {
             
-            const { setlists } = cache.readQuery({ query: QUERY_SETLISTS});
+            const { setlists } = cache.readQuery({ query: QUERY_SETLISTS });
             cache.writeQuery({
                 query: QUERY_SETLISTS,
                 data: { setlists: [addSetlist, ...setlists] },
@@ -29,10 +29,10 @@ const SetlistForm = () => {
 
         try {
             await addSetlist({
-                variables: { setlistText },
+                variables: { ...setlistText },
             });
-
-            setSetlistText('');
+            
+            setSetlistText({artist: "", venue: "", location: "", date: "", setOneSongList: "", setTwoSongList: "", encoreSongList: "" });
         } catch (e) {
             console.error(e);
         }
@@ -40,16 +40,14 @@ const SetlistForm = () => {
 
     return (
         <div className="login-form">
-            <p>{error && <span>Sorry, something went wrong..... Time to turn on another tune and try again later.</span>}</p>
             <form className="row" onSubmit={handleFormSubmit}>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
 crossorigin="anonymous"></link>
             <div className="col-auto align-items-center">
                 <h2 className="center">Add Setlist</h2>
-                {(error !="") ? ( <div className="error">{error}</div> ) : "" }
                 <div>
-                    <input type="text" name="artist" id="artist" placeholder="Artist" required onChange={e => setSetlistText({...setlistText, artist: e.target.value})} value={setlistText.artist} />
+                    <input type="artist" name="artist" id="artist" placeholder="Artist" required onChange={e => setSetlistText({...setlistText, artist: e.target.value})} value={setlistText.artist} />
                 </div>
                 <p></p>
                 <div>
@@ -71,6 +69,7 @@ crossorigin="anonymous"></link>
                 <div>
                     <input type="text" name="setTwoSongList" id="setTwoSongList" placeholder="Enter second set song list here..." required onChange={e => setSetlistText({...setlistText, setTwoSongList: e.target.value})} value={setlistText.setTwoSongList} />
                 </div>
+                <p></p>
                 <div>
                     <input type="text" name="encoreSongList" id="encoreSongList" placeholder="Enter encore song list here..." required onChange={e => setSetlistText({...setlistText, encoreSongList: e.target.value})} value={setlistText.encoreSongList} />
                 </div>

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 
+
 const Setlist = ({ setlists }) => {
 
 
@@ -32,7 +33,9 @@ const Setlist = ({ setlists }) => {
                         <li className="set-format">Encore: {setlist.encoreSongList}</li>
                     </ul>
                     <ul className="set-container2">
-                       <li className="commenter-format">Comments</li>
+                        <Link to={`/setlist/${setlist._id}`}>
+                            Discuss!
+                        </Link>
                    </ul>
                 </div>
             </div>))}

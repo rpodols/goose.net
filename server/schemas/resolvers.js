@@ -20,6 +20,9 @@ const resolvers = {
   
   setlists: async () => {
     return Setlist.find()
+  },
+  setlist: async (parent, { _id }) => {
+    return Setlist.findOne({ _id });
   }
   },
 
@@ -54,14 +57,14 @@ const resolvers = {
 
       //throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { commentData }, context) => {
+    addComment: async (parent, { setlistId, commentBody }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedComments: commentData } },
+        const updatedSetlist = await Setlist.findOneAndUpdate(
+          { _id: setlistId },
+          { $push: { comments: { commentBody, username: context.user.username } } },
           { new: true }
         );
-        return updatedUser;
+        return updatedSetlist;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
