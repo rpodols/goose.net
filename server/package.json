@@ -12,6 +12,7 @@
   "dependencies": {
     "apollo-server-express": "^3.10.0",
     "bcrypt": "^5.0.1",
+    "body-parser-graphql": "^1.1.0",
     "dayjs": "^1.11.4",
     "express": "^4.18.1",
     "graphql": "^16.5.0",

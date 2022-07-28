@@ -13,10 +13,9 @@ function MyAccountPage() {
     return (
         <div className="My Account">
             <MyAccount />
-            <p>You have attended 51 shows!</p>
-            <p>Today's show recommendation:</p>
-            <Setlist />
-            <p>Your shows:</p>
+            <p>Your Comments:</p>
+       
+         
             {loggedIn && (
                 <SetlistForm />
             )}

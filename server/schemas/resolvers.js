@@ -68,6 +68,47 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    deleteSetlist: async (parent, { setlistId }) => {
+      const setlist = await Setlist.findByIdAndRemove( 
+        { _id: setlistId },
+        { new: true } 
+        );
+        return setlist;
+    },
+    updateSetlist: async (parent, args) => {
+      const setlist = await Setlist.findByIdAndUpdate( 
+        { _id: args.setlistId },
+        { $set: { 
+          artist: args.artist,
+          venue: args.venue,
+          location: args.location,
+          setOneSongList: args.setOneSongList,
+          setTwoSongList: args.setTwoSongList,
+          encoreSongList: args.encoreSongList,
+          date: args.date
+        }},
+        // { artist: req.body.artist },
+        // { venue: req.body.venue },
+        // { location: req.body.location },
+        // { setOneSongList: req.body.setOneSongList },
+        // { setTwoSongList: req.body.setTwoSongList },
+        // { encoreSongList: req.body.encoreSongList },
+        // { date: req.body.date },
+        { new: true } 
+        );
+        return setlist;
+    },
+    // deleteComment: async (parent, { setlistId, commentId }, context) => {
+    //   if (context.user) {
+    //     const updatedSetlist = await Setlist.findOneAndUpdate(
+    //       { _id: setlistId },
+    //       { $pull: { comments: { commentId, username: context.user.username } } },
+    //       { new: true }
+    //     );
+    //     return updatedSetlist;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 //     savePost: async (parent, { postData }, context) => {
 //       if (context.user) {
 //         const updatedUser = await User.findByIdAndUpdate(
@@ -92,17 +133,6 @@ const resolvers = {
 //         return updatedUser;
 //       }
 
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
-//     removeComment: async (parent, { commentId }, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findOneAndUpdate(
-//           { _id: context.user._id },
-//           {$pull: {savedComments: { commentId } } },
-//           { new: true }
-//         );
-//         return updatedUser;
-//       }
 //       throw new AuthenticationError('You need to be logged in!');
 //     },
 //     removeSetlist: async (parent, { setlistId }, context) => {

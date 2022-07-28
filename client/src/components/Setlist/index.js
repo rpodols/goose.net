@@ -3,21 +3,15 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
+import Auth from '../../utils/auth';
+
 
 
 const Setlist = ({ setlists }) => {
 
+    const loggedIn = Auth.loggedIn();
+    const loggedOut = !loggedIn;
 
-
-    // const setlist2 = {
-    //     artist: "goose",
-    //     venue: "Agora",
-    //     date: "thursday: 3/10/22",
-    //     location: "Cleveland, OH",
-    //     set: "Set One",
-    //     songList: "tumble > writing a novel, turned clouds > bob don, rockdale"
-
-    // }
     return (
     <div>
        <div>
@@ -33,9 +27,11 @@ const Setlist = ({ setlists }) => {
                         <li className="set-format">Encore: {setlist.encoreSongList}</li>
                     </ul>
                     <ul className="set-container2">
+                    {loggedIn && (
                         <Link to={`/setlist/${setlist._id}`}>
                             Discuss!
                         </Link>
+                    )}
                    </ul>
                 </div>
             </div>))}

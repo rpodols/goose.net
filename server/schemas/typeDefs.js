@@ -61,6 +61,8 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
     addSetlist(artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList: String!, encoreSongList: String!, date: String!): Setlist
     addComment(setlistId: ID!, commentBody: String!): Setlist
+    deleteSetlist(setlistId: ID!): Setlist
+    updateSetlist(setlistId: ID!, artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList: String!, encoreSongList: String!, date: String!): Setlist
 }
 `;
 
