@@ -10,20 +10,6 @@ const [formValues, setFormValues] = useState({username: "", email: "", password:
 const [formErrors, setFormErrors] = useState({})
 const [isSubmit, setIsSubmit] = useState(false);
 const [addUser, { error }] = useMutation(ADD_USER);
-// const navigate = useNavigate();
-
-// const navigateHome = () => {
-//     navigate('/');
-// }
-
-// const handleChange = (event) => {
-//     const { name, value } = event.target;
-
-//     setFormValues({
-//       ...formValues,
-//       [name]: value,
-//     });
-//   };
 
 const submitHandler = async (e) => {
     e.preventDefault();

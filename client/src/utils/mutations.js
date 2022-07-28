@@ -68,6 +68,21 @@ export const ADD_SETLIST = gql`
   }
 `
 
+export const DELETE_SETLIST = gql`
+  mutation deleteSetlist($setlistId: ID!) {
+    deleteSetlist(setlistId: $setlistId) {
+      _id
+      date
+      artist
+      venue
+      location
+      setOneSongList
+      setTwoSongList
+      encoreSongList
+    }
+  }
+`
+
 // export const ADD_SETLIST = gql`
 //   mutation addSetlist($userId: ID!, $setlist_id: ID!) {
 //     addSetlist(userID: $userId, setlistId: $setlistId) {

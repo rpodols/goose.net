@@ -13,7 +13,7 @@ function MyAccountPage() {
     return (
         <div className="My Account">
             <MyAccount />
-            <p>Your Comments:</p>
+            <p>Your Shows: Feature Coming Soon</p>
        
          
             {loggedIn && (
