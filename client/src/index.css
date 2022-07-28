@@ -72,7 +72,10 @@ code {
 
 .setlist-header {
   background-color: #CBC5EA;
-  width: 20%;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  block-size: fit-content;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
@@ -80,17 +83,21 @@ code {
   border-top: 1px solid #313D5A;
   margin-bottom: auto;
   border-bottom: 1px solid #EAEAEA;
+  padding-left: 2rem;
+  padding-right: 1rem;
 }
 
 .setlist-subheader {
   border-top: 1px solid #EAEAEA;
-  width: 80%;
+  flex-grow: 100;
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid #313D5A;
   margin-top: 0;
   padding-top: 1px;
   margin-bottom: auto;
+  justify-content: center;
+  padding-left: 1rem;
 }
 
 .setlist-container {
