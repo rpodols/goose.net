@@ -46,6 +46,12 @@ code {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+  padding-top: 1.5rem;
+  font-size: 14px;
+
 }
 
 .setlist-nav {
@@ -54,15 +60,21 @@ code {
   justify-content: center;
 }
 
-.setlist-header {
+.setlist-header-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background-color: #CBC5EA;
+  height: 40px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1%;
+}
+
+.setlist-header {
+  background-color: #CBC5EA;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
   border-left: 1px solid #313D5A;
   border-right: 1px solid #313D5A;
   border-top: 1px solid #313D5A;
@@ -74,12 +86,9 @@ code {
 
 .setlist-subheader {
   border-top: 1px solid #EAEAEA;
-  background-color: #EAEAEA;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  justify-content: center;
   border-left: 1px solid #313D5A;
   border-right: 1px solid #313D5A;
   margin-top: 0;
@@ -89,7 +98,6 @@ code {
 }
 
 .setlist-container {
-
   width: 80%;
   height: 10%;
   margin-left: auto;

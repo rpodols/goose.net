@@ -18,8 +18,14 @@ const Setlist = ({ setlists }) => {
             {setlists && 
             setlists.map(setlist => (
             <div key={setlist._id} className="setlist-container">
-                <h4 className="setlist-header">{setlist.artist}: {setlist.venue}</h4>
-                <h5 className="setlist-subheader">{setlist.date} | {setlist.location}</h5>
+              <div className="setlist-header-container">
+                <div className="setlist-header">
+                    <h4>{setlist.artist}: {setlist.venue}</h4>
+                </div>
+                <div className="setlist-subheader">
+                    <h4>{setlist.date} | {setlist.location}</h4>
+                </div>
+              </div>
                 <div className="setlist-song">
                     <ul className="set-container">
                         <li className="set-format">Set 1: {setlist.setOneSongList}</li>
