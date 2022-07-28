@@ -5,7 +5,7 @@ import { ADD_SETLIST } from '../../utils/mutations';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 const SetlistForm = () => {
-    const [setlistText, setSetlistText] = useState("");
+    const [setlistText, setSetlistText] = useState({artist: "", venue: "", location: "", date: "", setOneSongList: "", setTwoSongList: "", encoreSongList: "" });
     
     const [addSetlist, { error }] = useMutation(ADD_SETLIST, {
         update(cache, { data: { addSetlist } }) {
@@ -47,10 +47,10 @@ const SetlistForm = () => {
 
         try {
             await addSetlist({
-                variables: { setlistText },
+                variables: { ...setlistText },
             });
 
-            setSetlistText('');
+            setSetlistText();
         } catch (e) {
             console.error(e);
         }
