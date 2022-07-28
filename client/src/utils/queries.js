@@ -31,5 +31,9 @@ query {
     setOneSongList
     setTwoSongList
     encoreSongList
+    user{
+      _id
+      username
+    }
   }
 }`;

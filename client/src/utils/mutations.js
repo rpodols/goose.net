@@ -63,9 +63,6 @@ export const ADD_SETLIST = gql`
       venue
       location
       setOneSongList
-      comments {
-        _id
-      }
     }
   }
 `

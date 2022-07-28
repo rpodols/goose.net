@@ -5,18 +5,36 @@ import { ADD_SETLIST } from '../../utils/mutations';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 const SetlistForm = () => {
-    const [setlistText, setSetlistText] = useState({artist: "", venue: "", location: "", date: "", set: "", songList: "" });
+    const [setlistText, setSetlistText] = useState("");
     
     const [addSetlist, { error }] = useMutation(ADD_SETLIST, {
         update(cache, { data: { addSetlist } }) {
             
-            const { setlists } = cache.readQuery({ query: QUERY_SETLISTS});
-            cache.writeQuery({
-                query: QUERY_SETLISTS,
-                data: { setlists: [addSetlist, ...setlists] },
+            try{
+              const { me } = cache.readQuery({ query: QUERY_ME });
+              cache.writeQuery({
+                query: QUERY_ME,
+                data: { me: { ...me, setlists: [...me.setlists, addSetlist] } },
+              });
+            } catch (e) {
+                console.warn("first setlist by user!")
+            }
+            const { setlists } = cache.readQuery({ query: QUERY_SETLISTS });
+            cache.writeQuery({ 
+              query: QUERY_SETLISTS,
+              data: { SETLISTS: [addSetlist, ...setlists] },
             });
         }
     });
+     
+
+            // const { setlists } = cache.readQuery({ query: QUERY_SETLISTS});
+            // cache.writeQuery({
+                // query: QUERY_SETLISTS,
+                // data: { setlists: [addSetlist, ...setlists] },
+            // });
+        // }
+    // });
 
     //const handleChange = (event) => {
     //    if (event.target.value.length <= 500) {
