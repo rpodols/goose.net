@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
+import { DELETE_SETLIST } from '../../utils/mutations';
 import { QUERY_SETLISTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
@@ -8,6 +9,40 @@ import Auth from '../../utils/auth';
 
 
 const Setlist = ({ setlists }) => {
+
+    const [deleteSetlist, { error } ] = useMutation(DELETE_SETLIST);
+
+        const edit = (event) => {
+            const setlistIdDelete = event.target.value;
+            window.location.assign("/edit/setlist/" + setlistIdDelete);
+        }
+
+        const remove = (event) => {
+            event.preventDefault();
+            const setlistIdDelete = event.target.value;
+            console.log(setlistIdDelete)
+
+            const updateCache = (cache) => {
+                console.log(cache)
+                const data = cache.readQuery({
+                    query: QUERY_SETLISTS
+                })
+    
+                const newData = {
+                    setlists: data.setlists.filter((s) => s.id !== setlistIdDelete  )
+                }
+                cache.writeQuery({
+                    query: QUERY_SETLISTS,
+                    data: newData
+                });
+                window.location.assign('/');
+                }
+
+            deleteSetlist({
+                variables: {setlistId: setlistIdDelete},
+                update: updateCache
+            });
+        };
 
     const loggedIn = Auth.loggedIn();
     const loggedOut = !loggedIn;
@@ -34,9 +69,13 @@ const Setlist = ({ setlists }) => {
                     </ul>
                     <ul className="set-container2">
                     {loggedIn && (
+                        <div>
                         <Link to={`/setlist/${setlist._id}`}>
                             Discuss!
                         </Link>
+                        <button onClick={remove} value={setlist._id}>Delete</button>
+                        <button onClick={edit} value={setlist._id}>Edit</button>
+                        </div>
                     )}
                    </ul>
                 </div>

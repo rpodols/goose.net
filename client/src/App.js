@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Setlist from './components/Setlist';
 import SingleSetlist from './pages/SingleSetlist';
+import EditSetlist from './pages/EditSetlist';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -60,6 +61,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/myaccount" element={<MyAccount />} />
                         <Route path="/setlist/:id" element={<SingleSetlist />} />
+                        <Route path="edit/setlist/:id" element={<EditSetlist />} />
                       </Routes>
           )}
           <Footer />
