@@ -135,10 +135,15 @@ code {
    margin-right: auto; 
  } */
 
+h4{
+  margin-bottom: 6px;
+}
 
 ul.set-container2 {
   justify-content: center;
+  padding-top: auto;
   margin-bottom: 0;
+  margin-top: auto;
 }
 
 .setlist-song {
@@ -149,6 +154,9 @@ ul.set-container2 {
   width: 80%;
   margin-left: 0;
   margin-right: auto;
+  padding-top: 1px;
+  height: auto;
+
 }
 
 .each-song {
@@ -160,19 +168,17 @@ ul.set-container2 {
 .set-container {
   display: flex;
   flex-direction: row;
-  height: 40px;
-  width: 60%;
+  height: auto;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  flex-wrap: wrap;
   padding-bottom: 10px;
 }
 
 .set-format {
-  list-style:none; 
-  margin: 2px;
-  margin-right: 20px;
+  list-style: none;
+  margin: auto;
 }
 
 
