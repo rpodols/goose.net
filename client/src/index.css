@@ -250,7 +250,6 @@ div.col-auto {
  justify-content: space-around;
  background-color: #EAEAEA;
  width: 100%;
-
 }
 
 .comment-stamp {
@@ -269,5 +268,27 @@ div.col-auto {
   flex-wrap: wrap;
   border-bottom: solid 1px #313D5A;
   width: 100%;
+}
+
+button{
+  background-color:#EAEAEA;
+  border: 1px solid #313D5A; 
+  border-radius: none;
+  color: #313D5A
+ }
+ button:Hover {
+   background-color:white;
+   color: black;
+ }
+
+ .mod-container{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 6px;
+  padding-right: 6px;
+ }
+
+.btn{
+  margin: 3px;
 
 }

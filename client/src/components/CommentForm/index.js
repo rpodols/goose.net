@@ -31,8 +31,10 @@ const CommentForm = ({ setlistId }) => {
     };
 
     return (
-        <div>
+        <div className="comment-container">
+          <div className="comment-header">
             <p>Character Count: {characterCount}/500 | {error && <span>Hmmm... something went wrong, please try again later.</span>}</p>
+          </div>  
             <form onSubmit={handleFormSubmit}>
                 <textarea placeholder="Enter comment here..." value={commentBody} onChange={handleChange} required></textarea>
                 <button type="submit">Submit</button>
