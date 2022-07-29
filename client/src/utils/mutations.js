@@ -70,8 +70,8 @@ export const ADD_SETLIST = gql`
 `
 
 export const EDIT_SETLIST = gql`
-  mutation editSetlist($setlistId: ID!, $date: String!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String!, $encoreSongList: String!) {
-    editSetlist(setlistId: $setlistId, date: $date, artist: $artist, venue: $venue, location: $location, setOneSongList: $setOneSongList, setTwoSongList: $setTwoSongList, encoreSongList: $encoreSongList) {
+  mutation updateSetlist($setlistId: ID!, $date: String!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String!, $encoreSongList: String!) {
+    updateSetlist(setlistId: $setlistId, date: $date, artist: $artist, venue: $venue, location: $location, setOneSongList: $setOneSongList, setTwoSongList: $setTwoSongList, encoreSongList: $encoreSongList) {
       _id
       date
       artist

@@ -309,6 +309,12 @@ button{
   margin: 3px;
 
 }
+
+.link-btn{
+  background-color:#EAEAEA;
+  
+  color: #313D5A
+}
 .page{
   text-align: center;
   justify-content: center;

@@ -70,7 +70,7 @@ const Setlist = ({ setlists }) => {
                     <ul className="set-container2">
                     {loggedIn && (
                         <div className="mod-container">
-                        <Link to={`/setlist/${setlist._id}`}>
+                        <Link className="btn link-btn" to={`/setlist/${setlist._id}`}>
                             Discuss!
                         </Link>
                         <button className="btn" onClick={remove} value={setlist._id}>Delete</button>
