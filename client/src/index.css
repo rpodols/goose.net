@@ -124,6 +124,39 @@ code {
   margin-left: auto;
   margin-right: auto;
   border-left: 1px solid #313D5A;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.set-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.setlist-song {
+  background-color: #EAEAEA;
+  margin-top: auto;
+  width: 80%;
+  margin-left: 0;
+  margin-right: auto;
+  padding-top: 1px;
+  height: auto;
+  display: flex;
+  
+}
+
+.set-format {
+  list-style: none;
+  padding-top: 12px;
+  align-items:flex-start;
 }
 
 /* .margin-format { 
@@ -140,22 +173,10 @@ h4{
 }
 
 ul.set-container2 {
-  justify-content: center;
+  
   padding-top: auto;
   margin-bottom: 0;
   margin-top: auto;
-}
-
-.setlist-song {
-  background-color: #EAEAEA;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: auto;
-  width: 80%;
-  margin-left: 0;
-  margin-right: auto;
-  padding-top: 1px;
-  height: auto;
 
 }
 
@@ -164,23 +185,6 @@ ul.set-container2 {
   list-style:none; 
   margin: 2px;
 }
-
-.set-container {
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  padding-bottom: 10px;
-}
-
-.set-format {
-  list-style: none;
-  margin: auto;
-}
-
 
 
 /* .login-form {

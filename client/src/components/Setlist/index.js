@@ -63,9 +63,9 @@ const Setlist = ({ setlists }) => {
               </div>
                 <div className="setlist-song">
                     <ul className="set-container">
-                        <li className="set-format">Set 1: {setlist.setOneSongList}</li>
-                        <li className="set-format">Set 2: {setlist.setTwoSongList}</li>
-                        <li className="set-format">Encore: {setlist.encoreSongList}</li>
+                        <li className="set-format"> Set 1: {setlist.setOneSongList}</li>
+                        <li className="set-format"> Set 2: {setlist.setTwoSongList}</li>
+                        <li className="set-format"> Encore: {setlist.encoreSongList}</li>
                     </ul>
                     <ul className="set-container2">
                     {loggedIn && (
