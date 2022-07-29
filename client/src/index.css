@@ -17,11 +17,6 @@ code {
     monospace;
 }
 
-.main-link {
-  margin: 0;
-  align-items: flex-start;
-}
-
 .navigation {
   display: flex;
   flex-direction: row;
@@ -35,18 +30,34 @@ code {
   
 }
 
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-right: 20px
+}
+
 .nav-bar {
   margin: 2%;
   color: white;
   text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  
+  justify-content: space-around;
+  padding-right: 20px;
 }
 
 .nav-bar:hover {
   text-decoration: underline;
   color: #313D5A;
+  
+}
+.main-icon {
+  font-size: 52px;
+  display: block;
+  padding-bottom: 10px;
+
 }
 
 .footer-nav {
@@ -159,6 +170,8 @@ ul.set-container2 {
   margin: 2px;
   margin-right: 20px;
 }
+
+
 
 /* .login-form {
   display: flex;
