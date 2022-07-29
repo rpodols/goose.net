@@ -8,7 +8,6 @@ const MyAccount = (props) => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="center">Your Account</h2>
                 
       </div>
     </div>

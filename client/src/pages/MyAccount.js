@@ -11,9 +11,8 @@ function MyAccountPage() {
 
 
     return (
-        <div className="My Account">
+        <div>
             <MyAccount />
-            <p>Your Shows: Feature Coming Soon</p>
        
          
             {loggedIn && (

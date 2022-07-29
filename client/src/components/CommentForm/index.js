@@ -37,7 +37,7 @@ const CommentForm = ({ setlistId }) => {
           </div>  
             <form onSubmit={handleFormSubmit}>
                 <textarea placeholder="Enter comment here..." value={commentBody} onChange={handleChange} required></textarea>
-                <button type="submit">Submit</button>
+                <button className="btn" type="submit">Submit</button>
             </form>
             {error && <div>Something went wrong... please try again later.</div>}
         </div>
