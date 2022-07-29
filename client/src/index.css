@@ -202,8 +202,38 @@ div.col-auto {
 
 .comment-container {
   display: flex;
-  width: 60%;
+  width: 25%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  border: solid 1px #313D5A;
+  margin-left: 20rem;
+  width: 40rem;
+}
+
+.comment-header {
+  display: flex;
+ justify-content: space-around;
+ background-color: #EAEAEA;
+ width: 100%;
+
+}
+
+.comment-stamp {
+  text-align: left;
+  display: flex;
+
+}
+
+.comment-content {
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.comment-user{
+  background-color: #EAEAEA;
+  flex-wrap: wrap;
+  border-bottom: solid 1px #313D5A;
+  width: 100%;
+
 }
