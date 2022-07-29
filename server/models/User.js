@@ -44,12 +44,7 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Comment'
         }
-    ]
-
-    // isAdmin: {
-    //     type: Boolean,
-    //     required: true,
-    // }
+    ],
 });
 
     userSchema.pre('save', async function(next) {

@@ -16,6 +16,7 @@ type User {
     username: String!
     email: String!
     ageVerified: Boolean!
+    isAdmin: Boolean
 }
 type Auth {
     token: ID!
@@ -58,7 +59,7 @@ type Query {
 }
 type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, ageVerified: Boolean!): Auth
+    addUser(username: String!, email: String!, password: String!, ageVerified: Boolean! isAdmin: Boolean): Auth
     addSetlist(artist: String!, venue: String!, location: String!, setOneSongList: String!, setTwoSongList: String!, encoreSongList: String!, date: String!): Setlist
     addComment(setlistId: ID!, commentBody: String!): Setlist
     deleteSetlist(setlistId: ID!): Setlist
