@@ -229,8 +229,12 @@ div.col-auto {
   width: 25rem;
 }
 
-input{
+.input-field {
   width: 380px ;
+}
+
+#ageVerified{
+  margin-left: 6px;  
 }
 
 .verification-font {
