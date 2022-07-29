@@ -32,7 +32,6 @@ class AuthService {
   }
 
   logout() {
-    // axios.defaults.headers.common["Authorization"] = null;
     localStorage.removeItem('id_token');
     window.location.assign('/');
   }
