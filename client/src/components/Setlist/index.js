@@ -46,7 +46,7 @@ const Setlist = ({ setlists }) => {
 
     const loggedIn = Auth.loggedIn();
     const loggedOut = !loggedIn;
-    //const isAdmin = Auth.isAdmin();
+    const isAdmin = Auth.isAdmin();
 
     return (
     <div>
@@ -77,12 +77,12 @@ const Setlist = ({ setlists }) => {
                         </Link>
                         </div>
                    )}
-                    {/* {isAdmin && (
+                    {isAdmin && (
                         <div>
                         <button className="btn" onClick={remove} value={setlist._id}>Delete</button>
                         <button className="btn" onClick={edit} value={setlist._id}>Edit</button>
                         </div>
-                        )} */}
+                        )}
                         </div>
                    </ul>
                 </div>

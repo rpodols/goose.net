@@ -6,12 +6,20 @@ import { QUERY_SETLISTS } from '../utils/queries';
 
 const Home = () => {
     const { loading, data } = useQuery(QUERY_SETLISTS);
-    const setlists = data?.setlists || [];
+    let setlists = data?.setlists || [];
+
+    let arrayForSort = [...setlists];
+
+    const sortedSetlist = arrayForSort.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
+
+    // const sortedSetlist = data?.setlists?.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
+    // console.log(sortedSetlist)
+
 
     return (
         <div>
             <Setlist
-            setlists={setlists}
+            setlists={sortedSetlist}
             />
         </div>
     )

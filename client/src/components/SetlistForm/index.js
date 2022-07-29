@@ -52,7 +52,7 @@ crossOrigin="anonymous"></link>
                 </div>
                 <p></p>
                 <div>
-                    <input className="input-field" type="text" name="date" id="date" placeholder="Date" required onChange={e => setSetlistText({...setlistText, date: e.target.value})} value={setlistText.date} />
+                    <input className="input-field" type="date" name="date" id="date" placeholder="Date" required onChange={e => setSetlistText({...setlistText, date: e.target.value})} value={setlistText.date} />
                 </div>
                 <p></p>
                 <div>
