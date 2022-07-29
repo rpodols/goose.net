@@ -30,7 +30,7 @@ const submitHandler = async (e) => {
         <form className="row gy-2 gx-3 align-items-center" onSubmit={submitHandler}>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
-crossorigin="anonymous"></link>
+crossOrigin="anonymous"></link>
             <div className="col-auto">
                 <h2 className="center">Login</h2>
                 {/* <div>
@@ -51,7 +51,7 @@ crossorigin="anonymous"></link>
                 {error && <div>Incorrect credentials, please retry or create an account.</div>}
             </div>
         </form>
-        <script crossorigin src="..."></script>
+        <script crossOrigin src="..."></script>
         </div>
     )
 }

@@ -8,6 +8,7 @@ function MyAccountPage() {
     
     const loggedIn = Auth.loggedIn();
     const loggedOut = !loggedIn;
+    const isAdmin = Auth.isAdmin();
 
 
     return (
@@ -15,7 +16,7 @@ function MyAccountPage() {
             <MyAccount />
        
          
-            {loggedIn && (
+            {isAdmin && (
                 <SetlistForm />
             )}
         </div>

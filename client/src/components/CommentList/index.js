@@ -10,12 +10,13 @@ const CommentList = ({ comments }) => {
         </div>
             <div className="comment-content">
             {comments && comments.map(comment => (
-              <><p className="comment-content" key={comment._id}>
+              <div key={comment._id}><p className="comment-content">
                     {comment.commentBody} 
                     </p>
                     <p className="comment-user">
                         {comment.username} on {comment.createdAt}
-                    </p></>
+                    </p>
+                </div>
             ))}
           </div>
         

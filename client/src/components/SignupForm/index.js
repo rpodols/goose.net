@@ -70,7 +70,7 @@ const submitHandler = async (e) => {
         <form className="row" onSubmit={submitHandler}>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
 integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
-crossorigin="anonymous"></link>
+crossOrigin="anonymous"></link>
             <div className="col-auto">
                 <h2 className="center">Create New Account</h2>
                 {(error !="") ? ( <div className="error">{error}</div> ) : "" }

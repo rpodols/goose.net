@@ -10,6 +10,11 @@ const Header = () => {
     };
 
     const loggedIn = Auth.loggedIn();
+    let isAdmin = false;
+    if(loggedIn) {
+      isAdmin = Auth.isAdmin();
+    }
+   
 
     return (
         <header>
@@ -22,8 +27,11 @@ const Header = () => {
                             <Link className="nav-bar" to="/">goose.net</Link>
                           </div>
                           <div className="nav-container">
-                            <Link className="nav-bar" to="/myaccount">Add Setlist</Link>
+                          {isAdmin && (
+                            <Link className="nav-bar" to="/myaccount">Add Setlist</Link>)
+                          }
                             <Link className="nav-bar" to="/">Setlists</Link>
+                            
                             <a className="nav-bar" href="/" onClick={logout}>Logout</a>
                           </div>
                         </>

@@ -46,6 +46,7 @@ const Setlist = ({ setlists }) => {
 
     const loggedIn = Auth.loggedIn();
     const loggedOut = !loggedIn;
+    //const isAdmin = Auth.isAdmin();
 
     return (
     <div>
@@ -68,15 +69,21 @@ const Setlist = ({ setlists }) => {
                         <li className="set-format"> Encore: {setlist.encoreSongList}</li>
                     </ul>
                     <ul className="set-container2">
+                        <div>
                     {loggedIn && (
                         <div className="mod-container">
                         <Link className="btn link-btn" to={`/setlist/${setlist._id}`}>
                             Discuss!
                         </Link>
+                        </div>
+                   )}
+                    {/* {isAdmin && (
+                        <div>
                         <button className="btn" onClick={remove} value={setlist._id}>Delete</button>
                         <button className="btn" onClick={edit} value={setlist._id}>Edit</button>
                         </div>
-                    )}
+                        )} */}
+                        </div>
                    </ul>
                 </div>
             </div>))}
