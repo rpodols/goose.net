@@ -104,14 +104,15 @@ code {
   border-left: 1px solid #313D5A;
 }
 
-.margin-format {
-  height: 100%;
-  border-right: 1px black solid;
-  border-left: 1px black solid;
+/* .margin-format { 
+   height: 100%; 
+   border-right: 1px black solid; 
+   border-left: 1px black solid; 
 
-  margin-left: auto;
-  margin-right: auto;
-}
+   margin-left: auto; 
+   margin-right: auto; 
+ } */
+
 
 ul.set-container2 {
   justify-content: center;
@@ -132,7 +133,6 @@ ul.set-container2 {
   flex-direction: row;
   list-style:none; 
   margin: 2px;
-  
 }
 
 .set-container {
@@ -198,4 +198,12 @@ div.col-auto {
 
 .verification-font {
   color: #183642
+}
+
+.comment-container {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
