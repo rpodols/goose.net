@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && build",
+    "build": "cd client && npm run build",
     "start": "node server/server.js"
   },
   "keywords": [],
