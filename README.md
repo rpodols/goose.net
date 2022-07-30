@@ -43,10 +43,10 @@
  * Send an email to rdpodols@gmail.com with any questions.
 
  ## Link to Project & Screenshot
-Link to deployed application: 
+Link to deployed application: https://morning-bayou-26643.herokuapp.com/
 
-![goose Screenshot)](/assets/images/applicationImage.png)
-[Click here to view the project!](PASTEURLHERE)
+![goose Screenshot)](/client/public/assets/applicationImage.png)
+[Click here to view the project!](https://morning-bayou-26643.herokuapp.com/)
 
 
 
