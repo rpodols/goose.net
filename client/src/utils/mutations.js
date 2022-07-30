@@ -70,7 +70,7 @@ export const ADD_SETLIST = gql`
 `
 
 export const EDIT_SETLIST = gql`
-  mutation updateSetlist($setlistId: ID!, $date: Date!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String!, $encoreSongList: String!) {
+  mutation updateSetlist($setlistId: ID!, $date: String!, $artist: String!, $venue: String!, $location: String!, $setOneSongList: String!, $setTwoSongList: String!, $encoreSongList: String!) {
     updateSetlist(setlistId: $setlistId, date: $date, artist: $artist, venue: $venue, location: $location, setOneSongList: $setOneSongList, setTwoSongList: $setTwoSongList, encoreSongList: $encoreSongList) {
       _id
       date
@@ -98,21 +98,3 @@ export const DELETE_SETLIST = gql`
     }
   }
 `
-
-// export const ADD_SETLIST = gql`
-//   mutation addSetlist($userId: ID!, $setlist_id: ID!) {
-//     addSetlist(userID: $userId, setlistId: $setlistId) {
-//       _id
-//       date
-//       artist
-//       venue
-//       city
-//       state
-//       set
-//       user {
-//         _id
-//         username
-//       }
-//     }
-//   }
-// `

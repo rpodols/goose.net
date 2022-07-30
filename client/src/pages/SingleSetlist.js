@@ -23,7 +23,7 @@ const SingleSetlist = (props) => {
     }
 
     return (
-        <div>
+        <div className="single-container">
             <div key={setlist._id} className="setlist-container">
               <div className="setlist-header-container">
                 <div className="setlist-header">

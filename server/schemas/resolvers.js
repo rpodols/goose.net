@@ -87,68 +87,10 @@ const resolvers = {
           encoreSongList: args.encoreSongList,
           date: args.date
         }},
-        // { artist: req.body.artist },
-        // { venue: req.body.venue },
-        // { location: req.body.location },
-        // { setOneSongList: req.body.setOneSongList },
-        // { setTwoSongList: req.body.setTwoSongList },
-        // { encoreSongList: req.body.encoreSongList },
-        // { date: req.body.date },
         { new: true } 
         );
         return setlist;
     },
-    // deleteComment: async (parent, { setlistId, commentId }, context) => {
-    //   if (context.user) {
-    //     const updatedSetlist = await Setlist.findOneAndUpdate(
-    //       { _id: setlistId },
-    //       { $pull: { comments: { commentId, username: context.user.username } } },
-    //       { new: true }
-    //     );
-    //     return updatedSetlist;
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-//     savePost: async (parent, { postData }, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findByIdAndUpdate(
-//           { _id: context.user._id },
-//           { $push: { savedPost: postData } },
-//           { new: true }
-//         );
-
-//         return updatedUser;
-//       }
-
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
-//     removePost: async (parent, { postId }, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findOneAndUpdate(
-//           { _id: context.user._id },
-//           { $pull: { savedPosts: { postId } } },
-//           { new: true }
-//         );
-
-//         return updatedUser;
-//       }
-
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
-//     removeSetlist: async (parent, { setlistId }, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findOneAndUpdate(
-//           { _id: context.user._id },
-//           { $pull: { savedSetlist: { setlistId } } },
-//           { new: true }
-//         );
-
-//         return updatedUser;
-//       }
-
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
-    
    },
 };
 

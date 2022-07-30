@@ -8,7 +8,10 @@ function MyAccountPage() {
     
     const loggedIn = Auth.loggedIn();
     const loggedOut = !loggedIn;
-    const isAdmin = Auth.isAdmin();
+    let isAdmin = false;
+    if(loggedIn) {
+      isAdmin = Auth.isAdmin();
+    }
 
 
     return (

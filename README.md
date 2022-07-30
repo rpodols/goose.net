@@ -3,7 +3,7 @@
  ## Description
  This project is the third group project of the CWRU coding bootcamp.
 
- User Story: As someone who listens to Goose, I want a way to read setlists, so that I can decide what I want to listen to and keep track of the shows I've been to.
+ User Story: As someone who listens to Goose, I want a way to go through their setlists, so that I can decide what I want to listen to within their growing catalog of live shows. 
 
  ## Table of Contents
  - [Description](#description)
@@ -16,17 +16,16 @@
 
  ## Made Using:
  * Node.js
-        - New NPM packages: 
  * Express
  * Mongo
  * React
  
 
  ## Installation
- * To install locally, 
+ * To run locally, clone repository and run npm start in the root directory.
 
  ## Usage
- * This can be used as a way to view goose setlists and keep track of shows attended.
+ * This can be used as a way to view goose setlists.
 
  ## Contributing
  * No outside contributions at this time.
@@ -38,10 +37,10 @@
  [Click here for more license info!](https://choosealicense.com/licenses/mit/)
 
  ## Tests
- * After following installation instructions (or viewing app using deployed URL), tests can be run by registering on the site as a user, viewing setlists, and adding shows to your stash.
+ * After following installation instructions (or viewing app using deployed URL), tests can be run by registering on the site as a user, viewing setlists, and commenting on them.
 
  ## Questions
- * Send an email to rdpodols@gmail.com OR treyPUTyourEMAILhere with any questions.
+ * Send an email to rdpodols@gmail.com with any questions.
 
  ## Link to Project & Screenshot
 Link to deployed application: 

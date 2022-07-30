@@ -28,7 +28,7 @@ code {
 }
 
 footer {
-  position:fixed;
+  
   left:0px;
   bottom:0px;
   height:5%;
@@ -39,13 +39,17 @@ footer {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  position: fixed;
   width: 100%;
   padding: 0 20px;
   padding-top: 1rem;
   font-size: 14px;
   font-weight: bold;
   color:#EAEAEA;
+}
+.single-container{
+  display: flex;
+  flex-direction:column;
+  flex-wrap:wrap;
 }
 
 .form-container{
@@ -149,8 +153,6 @@ footer {
 
 .setlist-container {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   border-left: 0px solid #313D5A;
   display: flex;
   flex-flow: wrap;
@@ -249,14 +251,17 @@ div.col-auto {
   justify-content: space-around;
   align-items: center;
   border: solid 1px #313D5A;
-  margin-left: 20rem;
+
   margin-top: 6px;
+  margin-left:5px;
+  margin-bottom: 5px;
   width: 40rem;
+  flex-wrap:wrap;
 }
 
 .comment-header {
   display: flex;
- justify-content: space-around;
+
  background-color: #EAEAEA;
  width: 100%;
 }

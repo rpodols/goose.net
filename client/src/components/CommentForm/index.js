@@ -33,10 +33,10 @@ const CommentForm = ({ setlistId }) => {
     return (
         <div className="comment-container">
           <div className="comment-header">
-            <p>Character Count: {characterCount}/500 | {error && <span>Hmmm... something went wrong, please try again later.</span>}</p>
+            <p>Character Count: {characterCount}/500  {error && <span>Hmmm... something went wrong, please try again later.</span>}</p>
           </div>  
-            <form onSubmit={handleFormSubmit}>
-                <textarea placeholder="Enter comment here..." value={commentBody} onChange={handleChange} required></textarea>
+            <form className="comment-header" onSubmit={handleFormSubmit}>
+                <textarea className="comment-container" placeholder="Enter comment here..." value={commentBody} onChange={handleChange} required></textarea>
                 <button className="btn" type="submit">Submit</button>
             </form>
             {error && <div>Something went wrong... please try again later.</div>}

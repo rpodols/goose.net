@@ -1,15 +1,5 @@
 const { gql } = require('apollo-server-express');
 
-    //MUTATIONS TO ADD BACK IN LATER
-    // addPost(postData: PostInput!): User
-    // removePost(postID: ID!): User
-    // removeComment(commentID: ID!): User
-
-    //re-add isAdmin: Boolean to User
-    //       posts: [Post]
-    //       comments: [Comment]
-    //       setlists: [Setlist]
-
 const typeDefs = gql`
 type User {
     _id: ID!

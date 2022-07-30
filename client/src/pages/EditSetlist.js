@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import CommentForm from '../components/CommentForm';
-import CommentList from '../components/CommentList';
 import { QUERY_SETLISTS } from '../utils/queries';
 import { EDIT_SETLIST } from '../utils/mutations';
 import SetlistForm from '../components/SetlistForm';
-import Setlist from '../components/Setlist';
+
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -87,7 +85,7 @@ const SingleSetlist = (props) => {
             <form className="row" onSubmit={handleFormSubmit}>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
                     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
-                    crossorigin="anonymous"></link>
+                    crossOrigin="anonymous"></link>
             <div className="col-auto align-items-center">
                 <h2 className="center">Edit Setlist</h2>
                 <p></p>

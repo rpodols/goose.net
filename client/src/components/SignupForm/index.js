@@ -22,47 +22,6 @@ const submitHandler = async (e) => {
             console.error(e);
         }
 };
-
-// const validate = (values) => {
-//     const errors = {};
-//     //const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-//     if(!values.username) {
-//         errors.username = "Username is required!"
-//     }
-//     if(!values.password) {
-//         errors.password = "Password is required!"
-//     } else if (values.password.length < 4) {
-//         errors.password = "Password must be more than 4 characters!"
-//     } else if (values.password.length > 24) {
-//         errors.password = "Password must be less than 24 characters!"
-//     }
-//     if(!values.email) {
-//         errors.email = "Email is required!"
-//     }
-//     if(!values.confirmEmail) {
-//         errors.confirmEmail = "Email is required!"
-//     }
-//     if(!values.verifyPassword) {
-//         errors.verifyPassword = "Password is required!"
-//     }
-//     // if(!values.realName) {
-//     //     errors.realName = "Real name is required!"
-//     // }
-//     if(!values.ageVerified) {
-//         errors.ageVerified = "Must be over the age of 18 to register!"
-//     }
-//     // if(!values.phoneNumber) {
-//     //     errors.phoneNumber = "Phone number is required!"
-//     // }
-//     if(values.password !== values.verifyPassword) {
-//         errors.verifyPassword = "Password and verified password do not match!"
-//     }
-//     if(values.email !== values.confirmEmail) {
-//         errors.confirmEmail = "Email and confirmed email do not match!"
-//     }
-//     return errors;
-// };
  
 
     return (
@@ -113,12 +72,6 @@ crossOrigin="anonymous"></link>
             </div>
             
         </form>
-            {/* this below area can be deleted once sign ups are working */}
-                {Object.keys(formErrors).length === 0 && isSubmit ? (
-                        <div>Signed in successfully!</div>
-                    ) : (
-                        <pre> { } </pre>
-                    )}
         </div>
     )
 }

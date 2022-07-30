@@ -15,13 +15,6 @@ class AuthService {
     const decoded = decode(token);
 
     return decoded.data.isAdmin;
-
-    // const isAdmin = decoded.data.isAdmin;
-    // if(isAdmin) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
   }
 
   isTokenExpired(token) {
